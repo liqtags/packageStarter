@@ -20,15 +20,69 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
-  add: () => add
+  add: () => add,
+  returnPackage: () => returnPackage,
+  useCommander: () => useCommander
 });
 module.exports = __toCommonJS(src_exports);
+
+// node_modules/@liqtags/eslint-config/package.json
+var package_default = {
+  name: "@repo/eslint-config",
+  version: "0.0.0",
+  private: true,
+  files: [
+    "library.js",
+    "next.js",
+    "react-internal.js"
+  ],
+  devDependencies: {
+    "@vercel/style-guide": "^5.2.0",
+    "eslint-config-turbo": "^2.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    typescript: "^5.3.3"
+  }
+};
+
+// src/index.ts
+var { program } = require("commander");
+var returnPackage = () => {
+  return package_default;
+};
 var add = (a, b) => a + b;
-async function someTypedFunction(obj) {
-  return obj;
+var commandOptions = [
+  {
+    name: "payer",
+    description: "Specify the path to the secret key",
+    command: "--payer <PATH_TO_SECRET>"
+  },
+  {
+    name: "token_address",
+    description: "Specify the token address",
+    command: "--token_address <ADDRESS_TOKEN>"
+  }
+];
+async function useCommander() {
+  console.log("useCommander");
+  program.version("0.0.1");
+  commandOptions.forEach((option) => {
+    program.option(option.command, option.description);
+  });
+  program.action((options) => {
+    if (!options.payer) {
+      console.error("Please specify the path to the secret key");
+      process.exit(1);
+    }
+    console.log(options);
+  });
+  program.parse();
 }
-console.log(someTypedFunction({ a: 1, b: "2" }));
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  add
+  add,
+  returnPackage,
+  useCommander
 });
