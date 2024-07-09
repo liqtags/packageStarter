@@ -5,6 +5,8 @@
 
 export const add = (a: number, b: number): number => a + b;
 
+// import { add } from "@liqtags/thingtest";
+
 interface TypedObject {
   // some comment
   a: number;
