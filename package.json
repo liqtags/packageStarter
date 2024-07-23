@@ -1,5 +1,5 @@
 {
-  "name": "@liqtags/thingtest",
+  "name": "@liqtags/packagestarter",
   "version": "0.0.0",
   "private": true,
   "main": "./dist/index.js",
@@ -22,7 +22,6 @@
     "@liqtags/eslint-config": "github:liqtags/eslint-config",
     "@liqtags/jest-presets": "github:liqtags/jest-presets",
     "@liqtags/typescript-config": "github:liqtags/typescript-config",
-    "@types/commander": "^2.12.2",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
     "jest": "^29.7.0",
@@ -30,6 +29,5 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "commander": "^12.1.0"
   }
 }

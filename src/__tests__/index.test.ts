@@ -1,9 +1,9 @@
-import { add } from "..";
+import { packageStart } from "..";
 
 jest.spyOn(global.console, "log");
 
 describe("@liqtags/utils", () => {
   it("adds two numbers", () => {
-    expect(add(1, 2)).toBe(3);
+    expect(packageStart()).toBe("PACKAGE_START");
   });
 });
