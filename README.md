@@ -1,1 +1,1 @@
-# thingtest
+# Liqtags Namespace Package Starter
